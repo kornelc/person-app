@@ -8,4 +8,10 @@ class PersonSpec extends AnyFlatSpec with Matchers{
     val person = Person("Joe", "Smith")
     person.fullName shouldEqual "Joe Smith"
   }
+  it should "capitalize its first and last name" in {
+    val capitalPerson = Person("Joe", "Smith").capitalize
+    capitalPerson.firstName shouldEqual "JOE"
+    capitalPerson.lastName shouldEqual "SMITH"
+    capitalPerson.fullName shouldEqual "JOE SMITH"
+  }
 }
