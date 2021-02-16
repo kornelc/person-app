@@ -8,8 +8,8 @@ class PersonStoreSpec extends AnyFlatSpec with Matchers{
   "PersonStore" should "store and retrieve people from a JSON file" in {
     val store = new PersonStore
     val people = Seq(denzelWashington, markHamill)
-    store.storePerson(people)
-    val people2 = store.readPerson
+    store.storePeople(people)
+    val people2 = store.readPeople
     people2 should contain theSameElementsInOrderAs people
   }
 }

@@ -9,11 +9,11 @@ import org.json4s.native.Serialization.write
 class PersonStore{
   implicit val formats = DefaultFormats
   val path = Paths.get("/tmp/people.json")
-  def storePerson(people: Seq[Person]): Unit ={
+  def storePeople(people: Seq[Person]): Unit ={
     val jsonText = write(people)
     Files.write(path, jsonText.getBytes)
   }
-  def readPerson: Seq[Person] = {
+  def readPeople: Seq[Person] = {
     val readData = Files.readAllBytes(path)
     parse(new String(readData)).extract[Seq[Person]]
   }
