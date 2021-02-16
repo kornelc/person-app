@@ -11,11 +11,11 @@ import scala.util.Try
 class PersonStore{
   implicit val formats = DefaultFormats
   val path = Paths.get("/tmp/people.json")
-  def storePerson(people: Seq[Person]): Try[Unit] = Try{
+  def storePeople(people: Seq[Person]): Try[Unit] = Try{
     val jsonText = write(people)
     Files.write(path, jsonText.getBytes)
   }
-  def readPerson: Try[Seq[Person]] = Try{
+  def readPeople: Try[Seq[Person]] = Try{
     val readData = Files.readAllBytes(path)
     parse(new String(readData)).extract[Seq[Person]]
   }
