@@ -8,7 +8,8 @@ import org.json4s.native.Serialization.write
 
 import scala.util.Try
 
-class PersonStore{
+case class PersonStoreConf(writeLocation: String)
+class PersonStore(conf: PersonStoreConf){
   implicit val formats = DefaultFormats
   val path = Paths.get("/tmp/people.json")
   def storePeople(people: Seq[Person]): Try[Unit] = Try{

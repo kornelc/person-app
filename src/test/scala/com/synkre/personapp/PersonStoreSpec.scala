@@ -8,7 +8,7 @@ import scala.util.Success
 
 class PersonStoreSpec extends AnyFlatSpec with Matchers{
   "PersonStore" should "store and retrieve people from a JSON file" in {
-    val store = new PersonStore
+    val store = new PersonStore(PersonStoreConf("/tmp/peopletest.json"))
     val people = Seq(denzelWashington, markHamill)
     store.storePeople(people)
     val Success(people2) = store.readPeople
