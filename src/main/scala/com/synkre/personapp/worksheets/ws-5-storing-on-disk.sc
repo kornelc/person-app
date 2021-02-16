@@ -6,8 +6,6 @@ import java.nio.file._
 import com.synkre.personapp.Person
 import com.synkre.personapp.Person._
 
-import scala.util.control.NonFatal
-
 implicit val formats = DefaultFormats
 val people = Seq(denzelWashington, markHamill)
 val jsonText = write(people)
